@@ -19,20 +19,14 @@ namespace KiwiPaymentSystem
     /// </summary>
     public partial class MainAuthWindow : Window
     {
+        public static Frame _frameMain;
         public MainAuthWindow()
         {
             InitializeComponent();
-
+            _frameMain = frameMain;
         }
 
-        public class Operator
-        {
-            public int OperatorId { get; set; }
-            public string Prefix { get; set; }
-            public string Logo { get; set; }    
-            public string Name { get; set; }
-            public double Percent { get; set; }
-        }
+ 
 
         private void miOperatorList_Click(object sender, RoutedEventArgs e)
         {

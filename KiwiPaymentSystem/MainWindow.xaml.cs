@@ -40,10 +40,17 @@ namespace KiwiPaymentSystem
             else
                 lblPasswordMessage = null;
 
-            MainAuthWindow mainAuth = new MainAuthWindow();
-            mainAuth.Show();
-
-            this.Close();
+            UserService userService = new UserService();
+            if (userService.CheckUser(login, password))
+            {
+                MainAuthWindow mainAuth = new MainAuthWindow();
+                mainAuth.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("User not found");
+            }
         }
     }
 }

@@ -39,6 +39,7 @@
             <Label x:Name="lblPasswordMessage" FontStyle="Italic" Foreground="Red"></Label>
         </StackPanel>
 
-        <Button x:Name="btnAuth" Grid.Row="5" Grid.Column="1" Width="150" Height="25" Grid.ColumnSpan="2" Click="btnAuth_Click">Enter</Button>
+        <Button x:Name="btnAuth" Grid.Row="5" Grid.Column="1" Width="150" Height="25" Grid.ColumnSpan="2"
+                IsDefault="True" Click="btnAuth_Click">Enter</Button>
     </Grid>
 </Window>
