@@ -25,7 +25,6 @@ namespace KiwiPaymentSystem
         private OperatorService _operatorsService { get; set; }
         public pageAddOperator() : this(null)
         {
-
         }
         public pageAddOperator(Operators operators)
         {
@@ -37,15 +36,15 @@ namespace KiwiPaymentSystem
             else
             {
                 btnAdd.Content = "Edit";
+                tbxId.Text = operators.Id.ToString();
                 tbxLogo.Text = operators.Logo;
                 tbxName.Text = operators.Name;
                 tbxPhone.Text = operators.Phone;
                 tbxPercent.Text = operators.Percent.ToString();
-
-
             }
 
             _operators = operators;
+            _operatorsService = new OperatorService();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -53,29 +52,55 @@ namespace KiwiPaymentSystem
             if(_operators == null)
             {
                 Operators op = new Operators();
+
+                if (tbxId != null)
+                {
+                    op.Id = Convert.ToInt32(tbxId.Text);
+                }
+
                 op.Logo = tbxLogo.Text;
                 op.Name = tbxName.Text;
                 op.Phone = tbxPhone.Text;
                 op.Percent = Convert.ToDouble(tbxPercent.Text);
-                op.CreateDate = (DateTime)dpCreateDate.SelectedDate;
+                if (dpCreateDate.SelectedDate != null)
+                    op.CreateDate = (DateTime)dpCreateDate.SelectedDate;
+                else
+                    op.CreateDate = DateTime.Now;
 
                 if (_operatorsService.AddOperator(op))
+                    MessageBox.Show("Added");
+                else
+                    MessageBox.Show("Error occured");
+            }
+            else
+            {
+                Operators op = new Operators();
+
+                op.Id = _operators.Id;
+                op.Logo = tbxLogo.Text;
+                op.Name = tbxName.Text;
+                op.Phone = tbxPhone.Text;
+                op.Percent = Convert.ToDouble(tbxPercent.Text);
+                if (dpCreateDate.SelectedDate != null)
+                    op.CreateDate = (DateTime)dpCreateDate.SelectedDate;
+                else
+                    op.CreateDate = DateTime.Now;
+
+                if (_operatorsService.editOperator(op))
                 {
-                    MessageBox.Show("Successfuly Added");
+                    MessageBox.Show("Edited");
                 }
                 else
                 {
                     MessageBox.Show("Error occured");
                 }
-
-            }
-            else
-            {
-
             }
 
             pageOperatorList pad = new pageOperatorList();
+
             MainAuthWindow._frameMain.Navigate(pad);
         }
+
+       
     }
 }

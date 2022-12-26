@@ -14,7 +14,7 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Phone number prefix" 
-                                            DisplayMemberBinding="{Binding Path=Prefix}"
+                                            DisplayMemberBinding="{Binding Path=Phone}"
                                             Width="140"/>
                         <GridViewColumn Header="Company logo" Width="230">
                             <GridViewColumn.CellTemplate>

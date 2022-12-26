@@ -55,7 +55,11 @@ namespace KiwiPaymentSystem
         {
             Operators data = (Operators)lvOperatorList.SelectedItem;
 
-            MainAuthWindow._frameMain.Source = new Uri("pageAddOperator.xaml", UriKind.RelativeOrAbsolute);
+            pageAddOperator pad = new pageAddOperator(data);
+
+            //MainAuthWindow._frameMain.Source = new Uri("pageAddOperator.xaml", UriKind.RelativeOrAbsolute);
+
+            MainAuthWindow._frameMain.Navigate(pad);
         }
     }
 }

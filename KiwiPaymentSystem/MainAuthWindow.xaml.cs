@@ -37,5 +37,10 @@ namespace KiwiPaymentSystem
         {
             this.Close();
         }
+
+        private void miAddOperatorList_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Source = new Uri("pageAddOperator.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

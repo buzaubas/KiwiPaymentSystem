@@ -22,6 +22,26 @@ namespace KiwiPaymentSystem
             try
             {
                 db.Operators.Add(operators);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool editOperator(Operators _oper)
+        {
+            try
+            {
+                var oper = db.Operators.FirstOrDefault(w => w.Id == _oper.Id);
+                oper.Logo = _oper.Logo;
+                oper.Phone = _oper.Phone;
+                oper.Name = _oper.Name;
+                oper.Percent = _oper.Percent;
+                oper.CreateDate = _oper.CreateDate;
+                db.SaveChanges();
                 return true;
             }
             catch (Exception)

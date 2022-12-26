@@ -12,6 +12,8 @@
             <MenuItem Header="File">
                 <MenuItem Header="OperatorList" x:Name="miOperatorList" Click="miOperatorList_Click"></MenuItem>
                 <Separator></Separator>
+                <MenuItem Header="AddOperator" x:Name="miAddOperatorList" Click="miAddOperatorList_Click"></MenuItem>
+                <Separator></Separator>
                 <MenuItem Header="Close" x:Name="miClose" Click="miClose_Click"></MenuItem>
                 
             </MenuItem>
