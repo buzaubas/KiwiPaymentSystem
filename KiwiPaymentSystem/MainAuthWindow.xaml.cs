@@ -42,5 +42,10 @@ namespace KiwiPaymentSystem
         {
             frameMain.Source = new Uri("pageAddOperator.xaml", UriKind.RelativeOrAbsolute);
         }
+
+        private void miTreeView_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Source = new Uri("pageTreeView.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

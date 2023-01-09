@@ -77,6 +77,9 @@
     <Compile Include="pageOperatorList.xaml.cs">
       <DependentUpon>pageOperatorList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pageTreeView.xaml.cs">
+      <DependentUpon>pageTreeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserService.cs" />
     <Page Include="MainAuthWindow.xaml">
       <SubType>Designer</SubType>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pageOperatorList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pageTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

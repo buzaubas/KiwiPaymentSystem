@@ -23,25 +23,31 @@ namespace KiwiPaymentSystem
     {
         private Operators _operators { get; set; }
         private OperatorService _operatorsService { get; set; }
-        public pageAddOperator() : this(null)
+        public pageAddOperator() : this(new Operators())
         {
         }
         public pageAddOperator(Operators operators)
         {
             InitializeComponent();
-            if(operators == null)
-            {
-                btnAdd.Content = "Add";
-            }
-            else
-            {
-                btnAdd.Content = "Edit";
-                tbxId.Text = operators.Id.ToString();
-                tbxLogo.Text = operators.Logo;
-                tbxName.Text = operators.Name;
-                tbxPhone.Text = operators.Phone;
-                tbxPercent.Text = operators.Percent.ToString();
-            }
+
+            btnAdd.Content = operators.Id == 0 ? "Add" : "Edit";
+            gridOperator.DataContext = operators;
+
+            //if(operators == null)
+            //{
+            //    btnAdd.Content = "Add";
+            //}
+            //else
+            //{
+            //    btnAdd.Content = "Edit";
+            //    //tbxId.Text = operators.Id.ToString();
+            //    //tbxLogo.Text = operators.Logo;
+            //    //tbxName.Text = operators.Name;
+            //    //tbxPhone.Text = operators.Phone;
+            //    //tbxPercent.Text = operators.Percent.ToString();
+
+            //    gridOperator.DataContext = operators;
+            //}
 
             _operators = operators;
             _operatorsService = new OperatorService();
@@ -49,19 +55,21 @@ namespace KiwiPaymentSystem
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(_operators == null)
+            if(_operators.Id == 0)
             {
-                Operators op = new Operators();
+                //Operators op = new Operators();
 
-                if (tbxId != null)
-                {
-                    op.Id = Convert.ToInt32(tbxId.Text);
-                }
+                Operators op = (Operators)gridOperator.DataContext;
 
-                op.Logo = tbxLogo.Text;
-                op.Name = tbxName.Text;
-                op.Phone = tbxPhone.Text;
-                op.Percent = Convert.ToDouble(tbxPercent.Text);
+                //if (tbxId != null)
+                //{
+                //    op.Id = Convert.ToInt32(tbxId.Text);
+                //}
+
+                //op.Logo = tbxLogo.Text;
+                //op.Name = tbxName.Text;
+                //op.Phone = tbxPhone.Text;
+                //op.Percent = Convert.ToDouble(tbxPercent.Text);
                 if (dpCreateDate.SelectedDate != null)
                     op.CreateDate = (DateTime)dpCreateDate.SelectedDate;
                 else
@@ -74,13 +82,14 @@ namespace KiwiPaymentSystem
             }
             else
             {
-                Operators op = new Operators();
+                //Operators op = new Operators();
+                Operators op = (Operators)gridOperator.DataContext;
 
-                op.Id = _operators.Id;
-                op.Logo = tbxLogo.Text;
-                op.Name = tbxName.Text;
-                op.Phone = tbxPhone.Text;
-                op.Percent = Convert.ToDouble(tbxPercent.Text);
+                //op.Id = _operators.Id;
+                //op.Logo = tbxLogo.Text;
+                //op.Name = tbxName.Text;
+                //op.Phone = tbxPhone.Text;
+                //op.Percent = Convert.ToDouble(tbxPercent.Text);
                 if (dpCreateDate.SelectedDate != null)
                     op.CreateDate = (DateTime)dpCreateDate.SelectedDate;
                 else

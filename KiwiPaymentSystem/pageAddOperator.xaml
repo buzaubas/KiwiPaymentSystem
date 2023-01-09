@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pageAddOperator">
 
-    <Grid>
+    <Grid x:Name="gridOperator">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -34,12 +34,12 @@
         <Label Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18">Name</Label>
         <Label Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18">Percent</Label>
         <Label Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18">CreateDate</Label>
-        <TextBox Grid.Column="2" Grid.Row="1" x:Name="tbxId" IsEnabled="False"></TextBox>
-        <TextBox Grid.Column="2" Grid.Row="2" x:Name="tbxPhone"></TextBox>
-        <TextBox Grid.Column="2" Grid.Row="3" x:Name="tbxLogo"></TextBox>
-        <TextBox Grid.Column="2" Grid.Row="4" x:Name="tbxName"></TextBox>
-        <TextBox Grid.Column="2" Grid.Row="5" x:Name="tbxPercent"></TextBox>
-        <TextBox Grid.Column="2" Grid.Row="6" x:Name="tbxCreateDate"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="1" x:Name="tbxId" IsEnabled="False" Text="{Binding Path=Id}"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="2" x:Name="tbxPhone" Text="{Binding Path=Phone}"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="3" x:Name="tbxLogo" Text="{Binding Path=Logo}"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="4" x:Name="tbxName" Text="{Binding Path=Name}"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="5" x:Name="tbxPercent" Text="{Binding Path=Percent}"></TextBox>
+        <TextBox Grid.Column="2" Grid.Row="6" x:Name="tbxCreateDate" Text="{Binding Path=CreateDate}"></TextBox>
         <DatePicker Grid.Column="2" Grid.Row="6" x:Name="dpCreateDate"></DatePicker>
         <Button x:Name="btnAdd" Click="btnAdd_Click" Grid.Column="2" Grid.Row="7" Margin="10"></Button>
     </Grid>
